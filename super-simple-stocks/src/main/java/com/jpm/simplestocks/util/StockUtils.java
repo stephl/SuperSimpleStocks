@@ -1,6 +1,7 @@
 package com.jpm.simplestocks.util;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class StockUtils {
 
@@ -19,12 +20,12 @@ public class StockUtils {
 		return resultAsBD.doubleValue();
 	}
 
-	public static double geometricMean(double... value) {
-		if (value == null || value.length == 0) {
+	public static double geometricMean(List<Double> values) {
+		if (values == null || values.size() == 0) {
 			return -1;
 		}
-		double product = multiplyNumbers(value);
-		double power = divideUsingBigDecimal(1, value.length, 5);
+		double product = multiplyNumbers(values);
+		double power = divideUsingBigDecimal(1, values.size(), 5);
 		double result = Math.pow(product, power);
 		BigDecimal bd = new BigDecimal(result); // use BigDecimal to round to 2
 												// decimal points
@@ -32,14 +33,18 @@ public class StockUtils {
 		return bd.doubleValue();
 	}
 
-	public static double multiplyNumbers(double... value) {
-		if (value == null || value.length == 0) {
+	public static double multiplyNumbers(List<Double> values) {
+		if (values == null || values.size() == 0) {
 			return -1;
 		}
+		
+		if(values.size() == 1) {
+			return values.get(0);
+		}
 
-		BigDecimal product = new BigDecimal(value[0]);
-		for (int i = 1; i < value.length; i++) {
-			BigDecimal next = new BigDecimal(value[i]);
+		BigDecimal product = new BigDecimal(1);
+		for (Double value : values) {
+			BigDecimal next = new BigDecimal(value);
 			product = product.multiply(next);
 		}
 
