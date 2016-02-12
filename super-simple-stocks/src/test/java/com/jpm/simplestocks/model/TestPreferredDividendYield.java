@@ -18,9 +18,8 @@ public class TestPreferredDividendYield {
 	private int parValue;
 	private double expected;
 
-	public TestPreferredDividendYield(int fixedDividend,
-			int parValue, int marketPrice, double expected) {
-		
+	public TestPreferredDividendYield(int fixedDividend, int parValue, int marketPrice, double expected) {
+
 		this.fixedDividend = fixedDividend;
 		this.parValue = parValue;
 		this.marketPrice = marketPrice;
@@ -30,13 +29,13 @@ public class TestPreferredDividendYield {
 	@Parameters(name = "Fixed Dividend: {0} Par Value: {1} Market Price: {2} Result: {3}")
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] { { 10, 100, 5, 2 }, // Simple case
-			{ 10, 100, 3, 3.33 }, // Fractional Result, rounded
-			{ 0, 100, 10, -1 }, // Zero Dividend
-			{ 2, 0, 10, -1 }, // Zero Par
-			{ 2, 100, 0, -1 }, // Zero market price
-			{ -1, 100, 10, -1 }, // Negative Dividend
-			{ 2, -1, 10, -1 }, // Negative Par
-			{ 2, 100, -1, -1 } // Negative Market Price			
+				{ 10, 100, 3, 3.33 }, // Fractional Result, rounded
+				{ 0, 100, 10, -1 }, // Zero Dividend
+				{ 2, 0, 10, -1 }, // Zero Par
+				{ 2, 100, 0, -1 }, // Zero market price
+				{ -1, 100, 10, -1 }, // Negative Dividend
+				{ 2, -1, 10, -1 }, // Negative Par
+				{ 2, 100, -1, -1 } // Negative Market Price
 		});
 	}
 

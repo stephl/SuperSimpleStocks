@@ -8,7 +8,7 @@ import com.jpm.simplestocks.util.StockUtils;
 public class PreferredStock extends Stock {
 
 	private double fixedDividendPercentage;
-	
+
 	public PreferredStock(String symbol, int lastDividend, int parValue, double fixedDividendPercentage) {
 		super(symbol, lastDividend, parValue);
 		this.setFixedDividend(fixedDividendPercentage);
@@ -29,10 +29,10 @@ public class PreferredStock extends Stock {
 	}
 
 	private double getPercentageAsDouble() {
-		if(fixedDividendPercentage <= 0) {
+		if (fixedDividendPercentage <= 0) {
 			return -1;
-		} 
-			
+		}
+
 		BigDecimal bd = new BigDecimal(fixedDividendPercentage).divide(new BigDecimal(100), 2, RoundingMode.DOWN);
 		return bd.doubleValue();
 	}

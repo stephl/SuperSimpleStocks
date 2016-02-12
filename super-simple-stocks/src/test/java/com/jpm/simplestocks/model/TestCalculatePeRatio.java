@@ -28,9 +28,9 @@ public class TestCalculatePeRatio {
 		return Arrays.asList(new Object[][] { { 10, 5, 2 }, // Simple case
 				{ 8, 3, 2.67 }, // Fractional Result
 				{ 0, 5, -1 }, // Zero market price
-				{ 10, 0, -1 }, // Zero Dividend		
+				{ 10, 0, -1 }, // Zero Dividend
 				{ -1, 5, -1 }, // Zero market price
-				{ 10, -1, -1 } // Zero Dividend		
+				{ 10, -1, -1 } // Zero Dividend
 		});
 	}
 
@@ -40,7 +40,7 @@ public class TestCalculatePeRatio {
 		double result = stock.getPeRatio(marketPrice);
 		Assert.assertEquals(result, this.expected, 0);
 	}
-	
+
 	@Test
 	public void testCalculateCommonPeRatio() {
 		Stock stock = new CommonStock("TEST", lastDividend, 0);

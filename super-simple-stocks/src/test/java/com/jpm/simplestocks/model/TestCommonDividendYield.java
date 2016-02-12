@@ -17,7 +17,7 @@ public class TestCommonDividendYield {
 	private double expected;
 
 	public TestCommonDividendYield(int lastDividend, int marketPrice, double expected) {
-	
+
 		this.marketPrice = marketPrice;
 		this.lastDividend = lastDividend;
 		this.expected = expected;
@@ -27,9 +27,9 @@ public class TestCommonDividendYield {
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] { { 10, 5, 2 }, // Simple case
 				{ 20, 3, 6.67 }, // Fractional Result
-				{ 0, 5, -1 }, // Zero Dividend				
+				{ 0, 5, -1 }, // Zero Dividend
 				{ 10, 0, -1 }, // Zero market price
-				{ -1, 5, -1 }, // Negative Dividend				
+				{ -1, 5, -1 }, // Negative Dividend
 				{ 10, -1, -1 } // Negative Market Price
 		});
 	}

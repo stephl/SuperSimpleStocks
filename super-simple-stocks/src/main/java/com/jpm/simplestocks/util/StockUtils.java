@@ -7,7 +7,7 @@ public class StockUtils {
 	public static double divideUsingBigDecimal(double number, double divisor) {
 		return divideUsingBigDecimal(number, divisor, 2);
 	}
-	
+
 	public static double divideUsingBigDecimal(double number, double divisor, int precision) {
 		if (number <= 0 || divisor <= 0) {
 			return -1;
@@ -24,9 +24,10 @@ public class StockUtils {
 			return -1;
 		}
 		double product = multiplyNumbers(value);
-		double power = divideUsingBigDecimal(1, value.length, 5);		
+		double power = divideUsingBigDecimal(1, value.length, 5);
 		double result = Math.pow(product, power);
-		BigDecimal bd = new BigDecimal(result);  // use BigDecimal to round to 2 decimal points
+		BigDecimal bd = new BigDecimal(result); // use BigDecimal to round to 2
+												// decimal points
 		bd = bd.setScale(2, BigDecimal.ROUND_HALF_DOWN);
 		return bd.doubleValue();
 	}
@@ -35,7 +36,7 @@ public class StockUtils {
 		if (value == null || value.length == 0) {
 			return -1;
 		}
-		
+
 		BigDecimal product = new BigDecimal(value[0]);
 		for (int i = 1; i < value.length; i++) {
 			BigDecimal next = new BigDecimal(value[i]);
