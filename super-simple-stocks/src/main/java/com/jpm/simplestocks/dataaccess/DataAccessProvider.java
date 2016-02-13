@@ -1,4 +1,4 @@
-package com.jpm.simpestocks.dataaccess;
+package com.jpm.simplestocks.dataaccess;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,6 +17,8 @@ public interface DataAccessProvider {
 	public boolean updateStock(Stock stock);
 
 	public Collection<Stock> getStocks();
+	
+	public Stock getStock(String symbol);
 
 	public boolean recordTrade(Trade trade);
 

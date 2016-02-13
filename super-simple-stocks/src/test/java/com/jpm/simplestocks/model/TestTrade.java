@@ -17,32 +17,26 @@ public class TestTrade {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testCreateTradeNoSymbol() {
-		@SuppressWarnings(value = "unused")
-		Trade trade = new Trade(null, 10, 10, new Date(), Type.BUY);
-
+		new Trade(null, 10, 10, new Date(), Type.BUY);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testCreateTradeNegativeQuantity() {
-		@SuppressWarnings(value = "unused")
-		Trade trade = new Trade("TEA", -1, 10, new Date(), Type.BUY);
+		new Trade("TEA", -1, 10, new Date(), Type.BUY);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testCreateTradeNegativePrice() {
-		@SuppressWarnings(value = "unused")
-		Trade trade = new Trade("TEA", 5, -10, new Date(), Type.BUY);
+		new Trade("TEA", 5, -10, new Date(), Type.BUY);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testCreateTradeNoDate() {
-		@SuppressWarnings(value = "unused")
-		Trade trade = new Trade("TEA", 5, -10, null, Type.BUY);
+		new Trade("TEA", 5, -10, null, Type.BUY);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testCreateTradeNoType() {
-		@SuppressWarnings(value = "unused")
-		Trade trade = new Trade("TEA", 5, -10, new Date(), null);
+		new Trade("TEA", 5, 10, new Date(), null);
 	}
 }

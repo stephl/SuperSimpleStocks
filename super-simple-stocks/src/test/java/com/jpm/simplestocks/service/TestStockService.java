@@ -1,4 +1,4 @@
-package com.stleahy.simplestock.service;
+package com.jpm.simplestocks.service;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -9,6 +9,7 @@ import org.junit.Test;
 import com.jpm.simplestocks.model.CommonStock;
 import com.jpm.simplestocks.model.Stock;
 import com.jpm.simplestocks.model.Trade;
+import com.jpm.simplestocks.service.SimpleStockService;
 
 public class TestStockService {
 

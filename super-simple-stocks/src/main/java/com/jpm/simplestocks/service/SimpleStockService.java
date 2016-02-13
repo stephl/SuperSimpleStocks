@@ -1,4 +1,4 @@
-package com.stleahy.simplestock.service;
+package com.jpm.simplestocks.service;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -7,13 +7,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.jpm.simpestocks.dataaccess.DataAccessProvider;
-import com.jpm.simpestocks.dataaccess.InMemoryDataAccessProvider;
+import com.jpm.simplestocks.dataaccess.DataAccessProvider;
+import com.jpm.simplestocks.dataaccess.InMemoryDataAccessProvider;
 import com.jpm.simplestocks.model.Stock;
 import com.jpm.simplestocks.model.Trade;
 import com.jpm.simplestocks.util.StockUtils;
 
-public class SimpleStockService {
+public class SimpleStockService implements StockService {
 
 	DataAccessProvider dataProvider = new InMemoryDataAccessProvider();
 
@@ -22,6 +22,14 @@ public class SimpleStockService {
 			throw new IllegalArgumentException("Invalid stock provided.");
 		}
 		return dataProvider.addStock(stock);
+	}
+
+	public Stock getStock(String symbol) {
+		return dataProvider.getStock(symbol);
+	}
+
+	public Collection<Stock> getStocks() {
+		return dataProvider.getStocks();
 	}
 
 	public boolean recordTrade(Trade trade) {
@@ -39,19 +47,19 @@ public class SimpleStockService {
 		Collection<Trade> trades = dataProvider.getTrades(stockSymbol);
 		return calculateVolumeWeightedStockPrice(trades);
 	}
-	
+
 	public double calculateAllShareIndex() {
 		Map<String, List<Trade>> allTrades = dataProvider.getAllTrades();
-		if(allTrades.size()==0){
+		if (allTrades.size() == 0) {
 			return 0;
 		}
-		
-		List<Double> stockPrices = new ArrayList<Double>();				
-		for(List<Trade> trades: allTrades.values()){
+
+		List<Double> stockPrices = new ArrayList<Double>();
+		for (List<Trade> trades : allTrades.values()) {
 			double price = calculateVolumeWeightedStockPrice(trades);
 			stockPrices.add(price);
 		}
-	
+
 		return StockUtils.geometricMean(stockPrices);
 	}
 

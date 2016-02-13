@@ -33,18 +33,18 @@ public final class Trade {
 		}		
 		
 		if(transactionTime == null) {
-			throw new IllegalArgumentException("Trades must have a transaction time");
+			throw new IllegalArgumentException("Trades must have a transaction time.");
 		}
 		
 		if(transactionType == null) {
-			throw new IllegalArgumentException("Trades must have a transaction type");
+			throw new IllegalArgumentException("Trades must have a transaction type.");
 		}
 		
 		
 		this.stockSymbol = stockSymbol;
 		this.quantity = quantity;
 		this.tradePrice = tradePrice;
-		this.transactionTime = transactionTime;
+		this.transactionTime = new Date(transactionTime.getTime());
 		this.transactionType = transactionType;
 	}
 

@@ -1,4 +1,4 @@
-package com.stleahy.simplestock.dataaccess;
+package com.jpm.simplestocks.dataaccess;
 
 import java.util.Date;
 import java.util.List;
@@ -7,8 +7,8 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.jpm.simpestocks.dataaccess.DataAccessProvider;
-import com.jpm.simpestocks.dataaccess.InMemoryDataAccessProvider;
+import com.jpm.simplestocks.dataaccess.DataAccessProvider;
+import com.jpm.simplestocks.dataaccess.InMemoryDataAccessProvider;
 import com.jpm.simplestocks.model.PreferredStock;
 import com.jpm.simplestocks.model.Stock;
 import com.jpm.simplestocks.model.Trade;

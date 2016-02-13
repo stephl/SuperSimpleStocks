@@ -21,9 +21,25 @@ super-simple-stock has a test time dependency on org.junit.
 The source is an eclipse project and can be built within eclipse using the m2e plugin (Maven).  During development Eclipse version 5.4.0 with Maven 3.3.3 was used.
 
 To build outwith eclipse, use maven from the command line. i.e.
-```
+```s
 	cd super-simple-stocks
 	mvn install
 ```
-#Artifacts
+# Artifacts
 The build produces a single artifact super-simple-stocks.jar
+
+# Running
+A simple CLI version of the app can be ran using:
+```
+	java -classpath super-simple-stocks-0.0.1.jar com.jpm.simplestocks.app.SuperSimpleStockApp  
+```
+Enter: 
+HELP to view this help page
+GET to view current stocks
+PE <symbol> <price> to see the PE Ratio for the given stock and price 
+YIELD <symbol> <price> to see the Dividend Yield for the given stock and price 
+BUY <symbol> <quantity> <price> to buy 
+SELL <symbol> <quantity> <price> to sell 
+PRICE <symbol> to see the stock price for the given stock 
+INDEX to see the All Share Index
+EXIT to exit the system
